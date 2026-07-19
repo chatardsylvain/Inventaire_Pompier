@@ -1,0 +1,17 @@
+# Fichiers de configuration sensibles
+.env
+
+# Fichiers temporaires, de sauvegarde et de log
+*.bak
+*.log
+debug_mobiles.txt
+
+# Dossiers et sous-fichiers de session d'inventaire
+data/inventory_sessions/*
+!data/inventory_sessions/.gitkeep
+
+# (Optionnel) Ignorer les fichiers de données JSON si vous ne voulez pas les versionner.
+# Si vous souhaitez conserver les structures vides que nous avons créées, laissez ces lignes commentées :
+# data/alerts.json
+# data/inventory_history.json
+# data/rate_limit.json

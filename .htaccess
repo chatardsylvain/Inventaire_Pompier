@@ -1,0 +1,217 @@
+# ============================================================================
+# .htaccess — Inventaire TMC
+# Racine du site : /volume1/Web/Inventaire_TMC/
+# Apache HTTP Server — NAS Asustor AS5002T
+# ============================================================================
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. REDIRECTION HTTP → HTTPS
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Exclure le dossier Let's Encrypt (renouvellement certificat)
+    RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
+
+    # Rediriger vers HTTPS si connexion non chiffrée
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. PAGE D'ACCUEIL PAR DÉFAUT
+# ─────────────────────────────────────────────────────────────────────────────
+DirectoryIndex index.php
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. DÉSACTIVER LE LISTAGE DES RÉPERTOIRES
+#    Sans ça, Apache affiche le contenu d'un dossier si index.php est absent
+# ─────────────────────────────────────────────────────────────────────────────
+Options -Indexes
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. BLOQUER L'ACCÈS AUX FICHIERS SENSIBLES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Fichiers .env (y compris .env.example, .env.local, etc.)
+<FilesMatch "^\.env.*$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Fichiers de données JSON (inventaires, alertes, utilisateurs)
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Fichiers de logs et de debug
+<FilesMatch "\.(log|txt)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Fichiers de sauvegarde et temporaires
+<FilesMatch "\.(bak|backup|old|orig|save|swp|tmp|sql)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Fichiers de configuration et système
+<FilesMatch "^(composer\.json|composer\.lock|package\.json|package-lock\.json|yarn\.lock|Makefile|Dockerfile|\.gitignore|\.gitattributes|README\.md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Fichiers cachés (commençant par un point, sauf .well-known)
+<FilesMatch "^\.(?!well-known)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. BLOQUER L'ACCÈS DIRECT AUX DOSSIERS SENSIBLES
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloquer l'accès direct au dossier data/ (JSON, alertes, logs)
+    RewriteRule ^data/ - [F,L]
+
+    # Bloquer l'accès direct au dossier api/ depuis le navigateur
+    # (les appels légitimes passent par fetch() depuis JS, pas en navigation directe)
+    RewriteCond %{HTTP_ACCEPT} text/html
+    RewriteRule ^api/ - [F,L]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. EN-TÊTES DE SÉCURITÉ HTTP
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+
+    # Empêche le navigateur de "deviner" le type MIME (MIME sniffing)
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Empêche le chargement du site dans une iframe (clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Active la protection XSS intégrée des anciens navigateurs
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Force HTTPS pour 1 an (HSTS) — à activer seulement si HTTPS est stable
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Limite les informations envoyées sur l'origine des requêtes
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Content Security Policy — adapté à l'application (Google Fonts, FontAwesome CDN, API interne)
+    # Directive CSP simplifiée et sécurisée pour un usage local
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none';"
+
+    # Supprime la version d'Apache des réponses (sécurité par l'obscurité)
+    Header always unset X-Powered-By
+    Header always unset Server
+
+    # Empêche la mise en cache des réponses API (données toujours fraîches)
+    <FilesMatch "\.(php)$">
+        Header always set Cache-Control "no-store, no-cache, must-revalidate"
+        Header always set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 7. MASQUER LA VERSION D'APACHE (complément côté serveur)
+# ─────────────────────────────────────────────────────────────────────────────
+ServerSignature Off
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 8. BLOQUER LES USER-AGENTS MALVEILLANTS CONNUS
+#    (scanners automatiques, bots d'exploitation)
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_USER_AGENT} (nikto|sqlmap|nessus|openvas|masscan|zgrab|nuclei|dirbuster|gobuster|wfuzz|hydra|burpsuite|havij|acunetix) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 9. LIMITER LES MÉTHODES HTTP AUTORISÉES
+#    Seules GET et POST sont nécessaires pour ce site
+# ─────────────────────────────────────────────────────────────────────────────
+<LimitExcept GET POST>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</LimitExcept>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 10. PROTECTION CONTRE LES INJECTIONS DANS LES QUERY STRINGS
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloquer les tentatives d'injection SQL classiques dans l'URL
+    RewriteCond %{QUERY_STRING} (union.*select|insert.*into|drop.*table|script.*alert) [NC]
+    RewriteRule .* - [F,L]
+
+    # Bloquer les tentatives de traversée de répertoire
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 11. OPTIMISATION DU CACHE NAVIGATEUR POUR LES ASSETS STATIQUES
+#     (améliore les performances sur mobile / tablette)
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Images : cache 30 jours
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png  "access plus 30 days"
+    ExpiresByType image/gif  "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+
+    # CSS et JS : cache 7 jours (les fichiers ont déjà des ?v=x.x pour le cache-busting)
+    ExpiresByType text/css        "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+
+    # Polices : cache 30 jours
+    ExpiresByType font/woff2 "access plus 30 days"
+    ExpiresByType font/woff  "access plus 30 days"
+</IfModule>
