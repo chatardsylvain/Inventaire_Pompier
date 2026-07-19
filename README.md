@@ -27,10 +27,10 @@ L'application chargera automatiquement ces variables via le fichier `api/env.php
 
 ### 2. Fichiers de configuration sensibles
 
-Certains fichiers sont codés en dur dans `api/config.php` pour être stockés dans un répertoire sécurisé sur le serveur (par exemple `/volume1/Secrets/`). Vous devez soit créer ce dossier et lui attribuer les bonnes permissions (pour que PHP puisse y lire et écrire), soit modifier les chemins dans `api/config.php` pour les adapter à votre serveur.
+Certains fichiers sont codés en dur dans `api/config.php` pour être stockés dans un répertoire sécurisé sur le serveur (par exemple `/chemin/vers/vos/secrets/`). Vous devez soit créer ce dossier et lui attribuer les bonnes permissions (pour que PHP puisse y lire et écrire), soit modifier les chemins dans `api/config.php` pour les adapter à votre serveur.
 
-- **Fichier des utilisateurs** : Défini par `USERS_FILE` (par défaut : `/volume1/Secrets/users.json`). Il stocke les identifiants de connexion.
-- **Fichier de limitation de requêtes (Rate Limit)** : Défini par `RATE_LIMIT_FILE` (par défaut : `/volume1/Secrets/rate_limit.json`). Il protège l'application contre les attaques par force brute.
+- **Fichier des utilisateurs** : Défini par `USERS_FILE` (par défaut : `/chemin/vers/vos/secrets/users.json`). Il stocke les identifiants de connexion.
+- **Fichier de limitation de requêtes (Rate Limit)** : Défini par `RATE_LIMIT_FILE` (par défaut : `/chemin/vers/vos/secrets/rate_limit.json`). Il protège l'application contre les attaques par force brute.
 
 **Note :** Assurez-vous que l'utilisateur exécutant PHP (ex: `www-data`) possède les droits de lecture et d'écriture sur ces fichiers.
 

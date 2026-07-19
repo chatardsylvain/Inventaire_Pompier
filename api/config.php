@@ -17,7 +17,7 @@ session_start();
 define('DATA_DIR', __DIR__ . '/../data');
 
 // Constante : Chemin absolu vers le fichier de stockage des administrateurs
-define('USERS_FILE', '/volume1/Secrets/users.json');
+define('USERS_FILE', '/chemin/vers/vos/secrets/users.json');
 
 /**
  * Envoie une réponse HTTP au format JSON et arrête l'exécution du script.
@@ -72,7 +72,7 @@ function envVar(string $key, $default = null) {
 // RATE LIMITING — Protection anti brute-force sur les endpoints sensibles
 // -------------------------------------------------------------------------
 
-define('RATE_LIMIT_FILE', '/volume1/Secrets/rate_limit.json');
+define('RATE_LIMIT_FILE', '/chemin/vers/vos/secrets/rate_limit.json');
 define('RATE_LIMIT_MAX_ATTEMPTS', 5);      // Nombre d'échecs autorisés
 define('RATE_LIMIT_WINDOW', 900);          // Fenêtre glissante : 15 minutes (en secondes)
 define('RATE_LIMIT_BLOCK_DURATION', 900);  // Durée du blocage une fois le seuil dépassé

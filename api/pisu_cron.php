@@ -4,7 +4,7 @@
  * Script appelable par cron pour envoyer automatiquement les alertes d'expiration PISU.
  *
  * Usage (dans crontab) :
- *   0 8 * * * /usr/bin/php /volume1/Web/stock-tmc/api/pisu_cron.php >> /volume1/Web/stock-tmc/data/pisu_cron.log 2>&1
+ *   0 8 * * * /usr/bin/php /var/www/html/Inventaire_TMC/api/pisu_cron.php >> /var/www/html/Inventaire_TMC/data/pisu_cron.log 2>&1
  * 
  * Cette commande envoie les alertes chaque jour à 8h du matin.
  */

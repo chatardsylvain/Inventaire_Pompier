@@ -6,8 +6,8 @@
  *
  * Emplacement recherché : DEUX niveaux au-dessus de /api/, c'est-à-dire
  * un niveau au-dessus de la racine du projet Inventaire_TMC.
- * Ex: si le projet est dans /volume1/Web/Inventaire_TMC/, le .env doit
- * être placé dans /volume1/Web/.env — donc hors du dossier servi par Apache,
+ * Ex: si le projet est dans /var/www/html/Inventaire_TMC/, le .env doit
+ * être placé dans /var/www/html/.env — donc hors du dossier servi par Apache,
  * ce qui le rend inaccessible depuis le navigateur quel que soit le .htaccess.
  */
 
@@ -54,6 +54,6 @@ function loadEnv(string $path): void {
     }
 }
 
-// Charge le .env situé à /volume1/Web/.env (deux niveaux au-dessus de api/)
+// Charge le .env situé à /var/www/html/.env (deux niveaux au-dessus de api/)
 loadEnv(__DIR__ . '/../../.env');
 ?>
