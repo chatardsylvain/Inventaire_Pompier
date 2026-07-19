@@ -1,0 +1,16 @@
+# Empêcher TOUS les robots d'indexer le site
+User-agent: *
+Disallow: /
+
+# Être explicite pour les principaux moteurs
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
