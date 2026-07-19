@@ -15,3 +15,9 @@ data/inventory_sessions/*
 # data/alerts.json
 # data/inventory_history.json
 # data/rate_limit.json
+
+# Ignorer les images et QR codes spécifiques à la caserne
+images/*
+!images/.gitkeep
+images/qrcodes/*
+!images/qrcodes/.gitkeep
