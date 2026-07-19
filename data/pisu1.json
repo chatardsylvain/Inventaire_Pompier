@@ -1,0 +1,25 @@
+{
+    "id": "pisu",
+    "name": "Espace PISU - Pharmacie",
+    "type": "Lot",
+    "description": "Gestion des médicaments et péremptions",
+    "image": "./images/pisu_placeholder.webp",
+    "icon": "fa-briefcase-medical",
+    "responsible_admin": "infirmier_login",
+    "locations": [
+        {
+            "id": "armoire-principale",
+            "name": "Armoire Principale",
+            "icon": "fa-pills",
+            "items": [
+                {
+                    "name": "Paracétamol",
+                    "dosage": "500mg",
+                    "forme": "Comprimé",
+                    "peremption": "2026-12-31",
+                    "quantity": 50
+                }
+            ]
+        }
+    ]
+}
