@@ -1,0 +1,67 @@
+{
+    "id": "lot-chef-groupe",
+    "name": "Lot Chef de Groupe",
+    "type": "Lot",
+    "description": "�?quipement de commandement",
+    "image": ".\/images\/lot-chef-groupe_1779996299.webp",
+    "icon": "fa-clipboard-user",
+    "locations": [
+        {
+            "id": "cdg-commandement",
+            "name": "Commandement",
+            "icon": "fa-walkie-talkie",
+            "items": [
+                {
+                    "name": "Gilet haute visibilité jaune \"Commandant des Opérations de Secours\"",
+                    "quantity": 2
+                },
+                {
+                    "name": "Gilet haute visibilité orange \"Chef de Secteur\"",
+                    "quantity": 1
+                },
+                {
+                    "name": "Valise GOC",
+                    "quantity": 1
+                },
+                {
+                    "name": "Mégaphone + 8 piles",
+                    "quantity": 1
+                },
+                {
+                    "name": "Clef triangle de 14",
+                    "quantity": 1
+                },
+                {
+                    "name": "Rubalise Jaune \"SDIS - Danger - Ne pas franchir\"",
+                    "quantity": 1
+                },
+                {
+                    "name": "Rubalise Rouge \"Danger de mort\"",
+                    "quantity": 1
+                },
+                {
+                    "name": "Rubalise Blanche\/Rouge",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pochette ATEX \/ GAZ",
+                    "quantity": 1
+                },
+                {
+                    "name": "Atlas départemental",
+                    "quantity": 1
+                },
+                {
+                    "name": "Kit Cléf de dérivation",
+                    "quantity": 1
+                },
+                {
+                    "name": "Valise gestion des binômes d'exploration",
+                    "quantity": 1
+                }
+            ]
+        }
+    ],
+    "responsible_admin": "",
+    "next_ct": ""
+}

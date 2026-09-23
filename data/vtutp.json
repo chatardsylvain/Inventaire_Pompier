@@ -1,0 +1,365 @@
+{
+    "id": "vtutp",
+    "name": "VTUTP",
+    "type": "Véhicule",
+    "description": "Véhicule Tous Usages - Tracteur - Présignalisation",
+    "image": ".\/images\/vtutp.jpg",
+    "icon": "fa-van-shuttle",
+    "locations": [
+        {
+            "id": "vtutp-cabine",
+            "name": "Cabine",
+            "icon": "fa-truck-front",
+            "items": [
+                {
+                    "name": "Lampe coudée sur piles",
+                    "quantity": 2
+                },
+                {
+                    "name": "Anneau remorquage",
+                    "quantity": 1
+                },
+                {
+                    "name": "Manivelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Cric",
+                    "quantity": 1
+                },
+                {
+                    "name": "Brassard Sapeur Pompier",
+                    "quantity": 1
+                },
+                {
+                    "name": "Papiers véhicule",
+                    "quantity": 1
+                },
+                {
+                    "name": "Triangle pré-signalisation",
+                    "quantity": 2
+                },
+                {
+                    "name": "Gilet Haute Visibilité orange",
+                    "quantity": 3
+                },
+                {
+                    "name": "Triangle 14",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Boite de gant",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Carte carburant",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "vtutp-controle",
+            "name": "Matériel soumis à contrôle",
+            "icon": "fa-clipboard-check",
+            "items": [
+                {
+                    "name": "Lot de sauvetage",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": "",
+                    "image": ".\/images\/vtutp-1_1779342022.webp"
+                }
+            ]
+        },
+        {
+            "id": "vtutp-tronconnage",
+            "name": "Lot Tronçonnage",
+            "icon": "fa-screwdriver-wrench",
+            "items": [
+                {
+                    "name": "Bidon mélange",
+                    "quantity": 1
+                },
+                {
+                    "name": "Casque F2 - Elements anti bruits - Visière",
+                    "quantity": 1
+                },
+                {
+                    "name": "Kit entretien tronçonneuse",
+                    "quantity": 1
+                },
+                {
+                    "name": "Jambières",
+                    "quantity": 1
+                },
+                {
+                    "name": "Tronçonneuse",
+                    "quantity": 1
+                },
+                {
+                    "name": "Guetre ",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787930865429",
+            "name": "Arriere",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Extincteur abc 9kg ",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "vtutp-balisage",
+            "name": "Lot Balisage",
+            "icon": "fa-road-barrier",
+            "items": [
+                {
+                    "name": "Cône de balisage 750 mm",
+                    "quantity": 6,
+                    "image": ".\/images\/vtutp-1_1779341811.webp"
+                },
+                {
+                    "name": "Piquet de balisage",
+                    "quantity": 10
+                },
+                {
+                    "name": "Rubalise rouge \"danger mort\"",
+                    "quantity": 2
+                },
+                {
+                    "name": "Rubalise rouge\/blanc",
+                    "quantity": 2
+                },
+                {
+                    "name": "Bidon d'absorbant 30L",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341831.webp"
+                },
+                {
+                    "name": "Rubalise jaune \"SDIS - Danger Ne pas franchir\"",
+                    "quantity": 2
+                },
+                {
+                    "name": "Triangle signalisation 700 mm",
+                    "quantity": 1
+                },
+                {
+                    "name": "Housse pour piquet balisage",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "vtutp-eclairage",
+            "name": "Lot Eclairage - Dénoyage",
+            "icon": "fa-lightbulb",
+            "items": [
+                {
+                    "name": "Adaptateur Maréchal Mâle \/ ménager Femelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Adaptateur ménager Mâle \/ Maréchal Femelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Bec verseur flexible",
+                    "quantity": 1
+                },
+                {
+                    "name": "Boitier dérivation Marechal Mâle > 2 Marechal Femelle + 1 ménager Femelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Enrouleur 25m prise Maréchal",
+                    "quantity": 2
+                },
+                {
+                    "name": "Groupe électrogène 3.5kVA",
+                    "quantity": 1
+                },
+                {
+                    "name": "Jerrican acier 5L",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pompe épuisement 30 m3\/H",
+                    "quantity": 1
+                },
+                {
+                    "name": "Projecteur halogène sur pied",
+                    "quantity": 2
+                },
+                {
+                    "name": "Tuyau Diam 45 - 20m",
+                    "quantity": 2
+                }
+            ]
+        },
+        {
+            "id": "vtutp-divers",
+            "name": "Lot Divers",
+            "icon": "fa-box-open",
+            "items": [
+                {
+                    "name": "Bidon sciure 60L",
+                    "quantity": 2,
+                    "image": ".\/images\/vtutp-1_1779341853.webp"
+                },
+                {
+                    "name": "Caisse outils",
+                    "quantity": 1
+                },
+                {
+                    "name": "Clé barrage",
+                    "quantity": 1
+                },
+                {
+                    "name": "Clé poteau",
+                    "quantity": 1
+                },
+                {
+                    "name": "Clé tampon",
+                    "quantity": 2,
+                    "image": ".\/images\/vtutp-1_1779341891.webp"
+                },
+                {
+                    "name": "Commande Diam 8 - 25m",
+                    "quantity": 2
+                },
+                {
+                    "name": "Curette",
+                    "quantity": 1
+                },
+                {
+                    "name": "Echelle coulisse 3 plans 2,75m => 6,25m",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341907.webp"
+                },
+                {
+                    "name": "Gilet d'aide à la flottabilité",
+                    "quantity": 1
+                },
+                {
+                    "name": "Halligan tool",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341916.webp"
+                },
+                {
+                    "name": "Outil force déblai (OFD) + Housse",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341929.webp"
+                },
+                {
+                    "name": "Pince",
+                    "quantity": 1
+                },
+                {
+                    "name": "Scie égoïne + étui",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341933.webp"
+                }
+            ]
+        },
+        {
+            "id": "vtutp-protection",
+            "name": "Lot Protection - Déblai",
+            "icon": "fa-helmet-safety",
+            "items": [
+                {
+                    "name": "Accessoires aspirateur (suceur; tubes; flexible)",
+                    "quantity": 1
+                },
+                {
+                    "name": "Aspirateur 70L",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341954.webp"
+                },
+                {
+                    "name": "Bâche 10mx3m",
+                    "quantity": 2
+                },
+                {
+                    "name": "Balai de catonnier",
+                    "quantity": 2,
+                    "image": ".\/images\/vtutp-1_1779341965.webp"
+                },
+                {
+                    "name": "Coupe boulon GM",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341971.webp"
+                },
+                {
+                    "name": "Drisse Diam 10 - 30m",
+                    "quantity": 1
+                },
+                {
+                    "name": "Ecope",
+                    "quantity": 2
+                },
+                {
+                    "name": "Masse tranche",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pantalon inondation Waders",
+                    "quantity": 2
+                },
+                {
+                    "name": "Pelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pioche",
+                    "quantity": 1,
+                    "image": ".\/images\/vtutp-1_1779341991.webp"
+                },
+                {
+                    "name": "Raclette caoutchouc",
+                    "quantity": 2
+                },
+                {
+                    "name": "Rouleau scotch toilé",
+                    "quantity": 2
+                },
+                {
+                    "name": "Sac gravats renforcé",
+                    "quantity": 5
+                },
+                {
+                    "name": "Seau maçon 12 L",
+                    "quantity": 2
+                },
+                {
+                    "name": "Tuyau annelé 10m",
+                    "quantity": 1
+                },
+                {
+                    "name": "Vêtement pluie (veste + pantalon)",
+                    "quantity": 3
+                }
+            ]
+        }
+    ],
+    "responsible_admin": "boyer_olivier",
+    "next_ct": "2027-02-20",
+    "ct_date": "2027-02-20",
+    "ct_alert_disabled": false,
+    "ct_alerted_days": []
+}

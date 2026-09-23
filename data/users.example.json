@@ -1,0 +1,18 @@
+{
+    "admins": [
+        {
+            "id": "admin_defaut",
+            "firstName": "Admin",
+            "lastName": "Système",
+            "pin": "0000",
+            "roles": ["superadmin"]
+        },
+        {
+            "id": "chef_defaut",
+            "firstName": "Chef",
+            "lastName": "Caserne",
+            "pin": "1234",
+            "roles": ["chef_caserne"]
+        }
+    ]
+}

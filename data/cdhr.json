@@ -1,0 +1,302 @@
+{
+    "id": "cdhr",
+    "name": "CDHR",
+    "type": "Véhicule",
+    "description": "Camion Dévidoir Hors Route",
+    "image": ".\/images\/cdhr.png",
+    "icon": "fa-truck-ramp-box",
+    "locations": [
+        {
+            "id": "loc-1786374184526",
+            "name": "Caisse à outils",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Tournevis cruciforme",
+                    "quantity": 1
+                },
+                {
+                    "name": "Clef à molette",
+                    "quantity": 1
+                },
+                {
+                    "name": "Marteau rivoir",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pince coupante",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pince multiprises",
+                    "quantity": 1
+                },
+                {
+                    "name": "Tournevis plat",
+                    "quantity": 1
+                },
+                {
+                    "name": "Massette",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "loc-1786374290142",
+            "name": "Cabine",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Cric",
+                    "quantity": 1
+                },
+                {
+                    "name": "Démonte roue",
+                    "quantity": 1
+                },
+                {
+                    "name": "Levier de levage cabine",
+                    "quantity": 1
+                },
+                {
+                    "name": "Papier du véhicule",
+                    "quantity": 1
+                },
+                {
+                    "name": "Triangle de pré-signalisation",
+                    "quantity": 1
+                },
+                {
+                    "name": "Casque F2",
+                    "quantity": 2
+                },
+                {
+                    "name": "Gilet haute visibilité",
+                    "quantity": 3
+                },
+                {
+                    "name": "Courroie ",
+                    "quantity": 3,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Lampe",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Tricoise 65 dans porte CD",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1786374565979",
+            "name": "Coffre avant gauche",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Tuyau Diam. 110 - 10m",
+                    "quantity": 3
+                },
+                {
+                    "name": "Tuyau Diam. 70 - 20m",
+                    "quantity": 4
+                },
+                {
+                    "name": "DFT",
+                    "quantity": 4,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787927835407",
+            "name": "Coffre arrière gauche",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Bouchon 100",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Bouchon 65",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Collecteur clapet 2x65\/100",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Division 100\/100-2x65",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Division 100\/2x65",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Réduction 100\/65",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Réduction 150\/100",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Vanne sectionnement",
+                    "quantity": 4,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Polycoise 150\/100",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Extincteur abc 9kg (porte en bas)",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Clef poteau\/tabourt",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787927836739",
+            "name": "Coffre avant droit",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Tuyaux 100 x 20m",
+                    "quantity": 8,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787927837839",
+            "name": "Coffre arrière droit",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Pneu",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Clef poteau",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Clef de barrage ",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Caisse outils",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Tricoise 150-100",
+                    "quantity": 4,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Barre jaune remonté tuyaux",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Cale de roue (porte en bas)",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787928439113",
+            "name": "Coffre arrière cabine",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Tuyaux aspiraux ",
+                    "quantity": 6,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Télécommande URT",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Barre pour débachage toit",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1787928529181",
+            "name": "Compartiment toit",
+            "icon": "fa-box",
+            "is_asup": false,
+            "items": [
+                {
+                    "name": "Tuyaux 110 x 40m ",
+                    "quantity": 50,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        }
+    ],
+    "responsible_admin": "",
+    "next_ct": "2027-02-24",
+    "ct_date": "2027-02-24",
+    "ct_alert_disabled": false,
+    "ct_alerted_days": []
+}

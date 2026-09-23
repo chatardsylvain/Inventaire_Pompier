@@ -1,0 +1,113 @@
+# ============================================================================
+# api/.htaccess — Inventaire TMC
+# Protection du dossier API (PHP backend)
+# ============================================================================
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. BLOQUER L'ACCÈS DIRECT AUX FICHIERS NON-API
+#    config.php, env.php, users.json ne doivent jamais être appelés directement
+# ─────────────────────────────────────────────────────────────────────────────
+<FilesMatch "^(config|env)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer tous les fichiers JSON (données sensibles : users, alertes...)
+<FilesMatch "\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer les fichiers de log et debug
+<FilesMatch "\.(log|txt|bak|backup|old|tmp)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. RESTREINDRE LES MÉTHODES HTTP AUTORISÉES
+#    L'API n'utilise que GET et POST
+# ─────────────────────────────────────────────────────────────────────────────
+<LimitExcept GET POST>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</LimitExcept>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. VÉRIFIER QUE L'APPEL VIENT BIEN DU SITE LUI-MÊME (même origine)
+#    Bloque les appels directs depuis un navigateur ou un script externe
+#    sans en-tête X-Requested-With ou Referer valide
+#    NOTE : ce n'est pas une protection absolue (les en-têtes sont falsifiables)
+#    mais ça élimine 99% des scans automatiques et curieux
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Autoriser les appels fetch() JavaScript (Content-Type: application/json)
+    RewriteCond %{CONTENT_TYPE} application/json [NC]
+    RewriteRule .* - [L]
+
+    # Autoriser les uploads multipart (images équipements)
+    RewriteCond %{CONTENT_TYPE} multipart/form-data [NC]
+    RewriteRule .* - [L]
+
+    # Bloquer l'accès si pas de Referer du tout ET la requête est GET
+    # (les fetch() JS envoient toujours un Referer sur les navigateurs modernes)
+    RewriteCond %{HTTP_REFERER} ^$
+    RewriteCond %{REQUEST_METHOD} GET
+    RewriteCond %{QUERY_STRING} action= [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. EN-TÊTES DE SÉCURITÉ SPÉCIFIQUES À L'API
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Les réponses API ne doivent jamais être mises en cache
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header always set Pragma "no-cache"
+
+    # Empêche le MIME sniffing sur les réponses JSON
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Pas d'affichage dans une iframe
+    Header always set X-Frame-Options "DENY"
+
+    # Supprime les infos techniques du serveur
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. DÉSACTIVER LE LISTAGE DU DOSSIER API
+# ─────────────────────────────────────────────────────────────────────────────
+Options -Indexes
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. BLOQUER LES SCANNERS ET BOTS MALVEILLANTS
+# ─────────────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_USER_AGENT} (nikto|sqlmap|nessus|masscan|nuclei|dirbuster|gobuster|wfuzz|acunetix|burpsuite) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>

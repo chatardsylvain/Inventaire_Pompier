@@ -1,0 +1,71 @@
+{
+    "id": "mpr",
+    "name": "MPR",
+    "type": "Remorque",
+    "description": "Motopompe Remorquable",
+    "image": ".\/images\/mprgp.jpg",
+    "icon": "fa-trailer",
+    "locations": [
+        {
+            "id": "mpr-equip",
+            "name": "Lot de bord",
+            "icon": "fa-gears",
+            "items": [
+                {
+                    "name": "Cale de roue",
+                    "quantity": 4
+                },
+                {
+                    "name": "Bidon d'eau",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1786374716722",
+            "name": "Pièce de jonction",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Clef de poteau",
+                    "quantity": 1
+                },
+                {
+                    "name": "Crépine",
+                    "quantity": 2
+                },
+                {
+                    "name": "Flotteur",
+                    "quantity": 2
+                },
+                {
+                    "name": "Réduction 100 \/ 65",
+                    "quantity": 2
+                },
+                {
+                    "name": "Tricoise 100",
+                    "quantity": 4
+                }
+            ]
+        },
+        {
+            "id": "loc-1786374771458",
+            "name": "Tuyaux",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Aspiraux Diam. 110 - 2 m",
+                    "quantity": 6
+                },
+                {
+                    "name": "Manche Diam. 110 - 10 m",
+                    "quantity": 2
+                }
+            ]
+        }
+    ],
+    "responsible_admin": "",
+    "next_ct": ""
+}

@@ -1,0 +1,136 @@
+{
+    "id": "vfi",
+    "name": "VFI",
+    "type": "Véhicule",
+    "description": "Véhicule Fourgonette d'Intervention",
+    "image": ".\/images\/vfi.jpeg",
+    "icon": "fa-kit-medical",
+    "locations": [
+        {
+            "id": "cabine-vfi",
+            "name": "Cabine",
+            "icon": "fa-kit-medical",
+            "items": [
+                {
+                    "name": "Gilet Haute Visibilité",
+                    "quantity": 3
+                },
+                {
+                    "name": "Lampe de ronde",
+                    "quantity": 2
+                },
+                {
+                    "name": "Boite de gant",
+                    "quantity": 1
+                },
+                {
+                    "name": "Papier du véhicule",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "coffre",
+            "name": "Caisse 2",
+            "icon": "fa-car",
+            "items": [
+                {
+                    "name": "Extincteur poudre ABC 9 kg",
+                    "quantity": 1
+                },
+                {
+                    "name": "Triangle de présignalisation",
+                    "quantity": 1
+                },
+                {
+                    "name": "Kit de premier secours",
+                    "quantity": 1
+                },
+                {
+                    "name": "Casque F2",
+                    "quantity": 2
+                },
+                {
+                    "name": "Gilet d'aide à la flottabilité",
+                    "quantity": 1
+                },
+                {
+                    "name": "Cric + Demonte pneu",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        },
+        {
+            "id": "loc-1786375117960",
+            "name": "Lot Divers caisse 1 ",
+            "icon": "fa-box",
+            "items": [
+                {
+                    "name": "Clef de barrage",
+                    "quantity": 1
+                },
+                {
+                    "name": "Cordage 20m x 15mm",
+                    "quantity": 1
+                },
+                {
+                    "name": "Piquet de fixation avec anneaux",
+                    "quantity": 3
+                },
+                {
+                    "name": "Coupe boulon",
+                    "quantity": 1
+                },
+                {
+                    "name": "Rouleau de sac poubelle",
+                    "quantity": 1
+                },
+                {
+                    "name": "Pince Bonnot",
+                    "quantity": 1
+                },
+                {
+                    "name": "Cônes de balisage",
+                    "quantity": 2
+                },
+                {
+                    "name": "Cale de porte orange",
+                    "quantity": 3
+                },
+                {
+                    "name": "Clef de poteau",
+                    "quantity": 1
+                },
+                {
+                    "name": "Tricoise",
+                    "quantity": 1
+                },
+                {
+                    "name": "Triangle pre-signalisation ",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Cales de roue",
+                    "quantity": 2,
+                    "lot": "",
+                    "peremption": ""
+                },
+                {
+                    "name": "Casque F1",
+                    "quantity": 1,
+                    "lot": "",
+                    "peremption": ""
+                }
+            ]
+        }
+    ],
+    "responsible_admin": "",
+    "next_ct": "2028-04-05",
+    "ct_date": "2028-04-05",
+    "ct_alert_disabled": false,
+    "ct_alerted_days": []
+}
